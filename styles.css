@@ -1,0 +1,205 @@
+/* Estilos generales */
+body {
+    font-family: "Merriweather", serif;
+    margin: 0;
+    padding: 0;
+
+    background-color: black;
+}
+
+.navbar {
+    transition: background-color 0.3s ease;
+    padding: 20px; /* Aumenta el padding para hacer el navbar más alto */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #fff;
+    font-size: 2rem; /* Aumenta el tamaño del logo */
+}
+
+/* Menú de hamburguesa */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 2rem; /* Aumenta el tamaño del ícono de hamburguesa */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+    width: 35px; /* Aumenta el tamaño de la hamburguesa */
+    height: 3px;
+}
+
+
+.navbar .text-white {
+    font-size: 25px; /* Cambia el tamaño de la fuente del texto "Call me" */
+    margin-left: auto; /* Empuja el texto hacia la derecha */
+    white-space: nowrap; /* Evita que el texto se divida */
+    display: flex;
+    align-items: center; /* Alinea verticalmente el texto */
+}
+
+.text-white {
+    white-space: nowrap; /* Evita que el texto se divida */
+}
+
+.text-dark {
+    font-size: 25px;
+}
+
+/* Estilos del menú desplegable */
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-item {
+    margin-left: 35px; /* Aumenta el espacio entre los elementos */
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 1.4rem; /* Aumenta el tamaño de la fuente de los enlaces */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.vr {
+    width: 2px;
+    height: 40px;
+    border-radius: 50px;
+    margin-top: 11px;
+}
+
+i {
+    padding: 20px;
+    font-size: 50px;
+    transform: scale(1.4);
+    white-space: nowrap;
+}
+
+
+.nav-link:hover {
+    color: #ff6f61; /* Cambia el color al pasar el ratón */
+}
+
+/* Menú de hamburguesa para pantallas pequeñas */
+.navbar-collapse {
+    justify-content: flex-end;
+    display: none; /* Ocultamos el menú por defecto */
+}
+
+.navbar-toggler.active + .navbar-collapse {
+    display: block; /* Mostramos el menú cuando el botón está activo */
+}
+
+
+/* Responsividad - Pantallas pequeñas */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #161616;
+        position: absolute;
+        top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
+        right: 0;
+        left: 54.5%;
+        width: 450px; /* Ajusta el ancho del cuadrado */
+        height: 400px; /* Ajusta la altura del cuadrado */
+        padding: 10px; /* Reduce el padding para que el cuadro sea más pequeño */
+        display: none; /* Esconde el cuadrado por defecto */
+        overflow: hidden; /* Elimina las barras de desplazamiento (vertical y horizontal) */
+        border-bottom-left-radius: 15px;
+        border-bottom: 3px solid red; /* Borde rojo en la parte inferior */
+        border-left: 3px solid red;
+        transition: all 0.3s ease-in-out; /* Animación para mostrar/ocultar el menú */
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-toggler.active + .navbar-collapse {
+        display: block; /* Asegura que el menú se muestre cuando el botón está activo */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: start;
+        padding: 5px; /* Ajusta el espacio al final del menú */
+    }
+
+    .nav-item {
+        margin: 8px 0; /* Reduce el espacio entre los enlaces en el menú desplegable */
+    }
+
+    .vr {
+        display: none;
+    }
+
+    i {
+        padding: 12px;
+        font-size: 50px;
+        transform: scale(1.4);
+        white-space: nowrap;
+        margin-top: 4px;
+    }
+
+    .nav-link {
+        font-size: 1.4rem; /* Ajusta el tamaño de la fuente */
+        color: rgb(224, 224, 224); /* Cambia el color de los enlaces */
+        position: relative; /* Necesario para posicionar la línea horizontal */
+        transition: transform 0.3s ease-out; /* Animación para mover el enlace hacia atrás */
+    }
+
+    .nav-link:hover {
+        color: rgb(224, 224, 224); /* Efecto hover para los enlaces */
+    }
+
+    .navbar-collapse .d-flex {
+        justify-content: flex-end;
+        margin-top: -47px;
+    }
+
+    .iconos {
+        font-size: 1.6rem; /* Ajusta el tamaño de los iconos */
+        color: rgb(224, 224, 224); /* Color blanco para los iconos */
+    }
+
+    .iconos:hover {
+        color: rgb(224, 224, 224); /* Efecto hover para los iconos */
+    }
+
+    .navbar-toggler-icon {
+        background-color: rgb(224, 224, 224); /* Cambia el color del icono del menú */
+    }
+
+    /* Animación para mover el enlace y mostrar la línea horizontal */
+    .nav-link.active {
+        transform: translateX(-10px); /* Mueve el enlace hacia la izquierda */
+    }
+
+    .nav-link::after {
+        content: ""; /* Crea el pseudo-elemento */
+        position: absolute;
+        left: 0;
+        bottom: -5px; /* Ajusta la posición para que la línea esté justo debajo del enlace */
+        width: 0;
+        height: 3px; /* Grosor de la línea horizontal */
+        background-color: red; /* Color de la línea */
+        transition: width 0.3s ease-out; /* Animación para expandir la línea */
+    }
+
+    /* Cuando el enlace tiene la clase active, la línea se expande */
+    .nav-link.active::after {
+        width: 100%; /* Expande la línea a lo largo del ancho del enlace */
+    }
+
+    .nav-link.active {
+        color: rgb(224, 224, 224); /* Cambia el color del texto cuando el enlace está activo */
+    }
+}
+
+
+
+
