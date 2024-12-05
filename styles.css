@@ -103,8 +103,8 @@ i {
         position: absolute;
         top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
         right: 0;
-        left: 61%;
-        width: 380px; /* Ajusta el ancho del cuadrado */
+        left: 55%;
+        width: 450px; /* Ajusta el ancho del cuadrado */
         height: 430px; /* Ajusta la altura del cuadrado */
         padding: 10px; /* Reduce el padding para que el cuadro sea más pequeño */
         display: none; /* Esconde el cuadrado por defecto */
@@ -143,10 +143,10 @@ i {
     i {
         padding: 10px;
         font-size: 70px;
-        transform: scale(1.8);
+        transform: scale(2.0);
         white-space: nowrap;
         margin-top: 50px;
-        margin-right: 58px;
+        margin-right: 60px;
     }
 
     .nav-link {
