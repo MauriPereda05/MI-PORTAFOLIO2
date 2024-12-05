@@ -211,11 +211,16 @@ i {
         gap: 10px; /* Espaciado entre íconos */
     }
 
-    .iconos {
-        font-size: 1.4rem; /* Reduce el tamaño de los íconos */
+    i {
+        padding: 10px;
+        font-size: 70px;
+        transform: scale(1.6);
+        white-space: nowrap;
         padding: 5px; /* Reduce el espacio interno del ícono */
         margin: 0; /* Elimina márgenes extra alrededor */
     }
+
+   
 }
 
 @media (max-width: 768px) { /* Para pantallas pequeñas */
