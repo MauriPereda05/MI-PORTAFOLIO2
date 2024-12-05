@@ -230,6 +230,58 @@ i {
     }
 }
 
+@media (max-width: 358px) { /* Para pantallas extremadamente pequeñas */
+    .navbar-collapse {
+        background-color: #161616;
+        position: absolute;
+        top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
+        right: 0;
+        left: 0; /* Asegura que el menú ocupe toda la pantalla */
+        width: 400px; /* Ancho completo para el menú */
+        height: 550px; /* Ajusta la altura del menú */
+        padding: 10px;
+        display: none; /* Esconde el cuadrado por defecto */
+        overflow: hidden;
+        border-bottom-left-radius: 15px;
+        border-bottom: 3px solid red;
+        border-left: 3px solid red;
+    }
+
+    /* Aumenta el tamaño de los íconos */
+    .iconos {
+        font-size: 50px; /* Aumenta el tamaño de los íconos */
+        transform: scale(2.0); /* Incrementa el tamaño de los íconos */
+        white-space: nowrap;
+        padding-left: 38px;
+    }
+
+    .navbar-toggler {
+        font-size: 2.5rem; /* Aumenta el tamaño del botón del menú hamburguesa */
+    }
+
+    /* Hace visible el menú cuando el botón hamburguesa está activo */
+    .navbar-toggler.active + .navbar-collapse {
+        display: block; /* Muestra el menú cuando se activa */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: start; /* Centra los elementos del menú */
+        padding: 20px;
+    }
+
+    .nav-item {
+        margin: 15px 0; /* Aumenta el espacio entre los enlaces */
+    }
+
+    .nav-link {
+        font-size: 1.6rem; /* Ajusta el tamaño de los enlaces */
+        color: rgb(224, 224, 224);
+    }
+}
+
+
+
 
 
 
