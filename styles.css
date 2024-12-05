@@ -103,16 +103,19 @@ i {
         position: absolute;
         top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
         right: 0;
-        left: 54.5%;
-        width: 450px; /* Ajusta el ancho del cuadrado */
-        height: 400px; /* Ajusta la altura del cuadrado */
+        left: 61%;
+        width: 380px; /* Ajusta el ancho del cuadrado */
+        height: 430px; /* Ajusta la altura del cuadrado */
         padding: 10px; /* Reduce el padding para que el cuadro sea más pequeño */
         display: none; /* Esconde el cuadrado por defecto */
         overflow: hidden; /* Elimina las barras de desplazamiento (vertical y horizontal) */
         border-bottom-left-radius: 15px;
         border-bottom: 3px solid red; /* Borde rojo en la parte inferior */
         border-left: 3px solid red;
-        transition: all 0.3s ease-in-out; /* Animación para mostrar/ocultar el menú */
+    }
+
+    .callme {
+        display: none !important;
     }
 
     .navbar-toggler {
@@ -138,11 +141,12 @@ i {
     }
 
     i {
-        padding: 12px;
-        font-size: 50px;
-        transform: scale(1.4);
+        padding: 10px;
+        font-size: 70px;
+        transform: scale(1.8);
         white-space: nowrap;
-        margin-top: 4px;
+        margin-top: 50px;
+        margin-right: 58px;
     }
 
     .nav-link {
@@ -199,6 +203,33 @@ i {
         color: rgb(224, 224, 224); /* Cambia el color del texto cuando el enlace está activo */
     }
 }
+
+@media (max-width: 576px) { /* Para pantallas muy pequeñas */
+    .navbar-collapse .d-flex {
+        justify-content: center; /* Asegura que los íconos estén centrados */
+        margin-top: 20px; /* Opcional: separa los íconos del resto del contenido */
+        gap: 10px; /* Espaciado entre íconos */
+    }
+
+    .iconos {
+        font-size: 1.4rem; /* Reduce el tamaño de los íconos */
+        padding: 5px; /* Reduce el espacio interno del ícono */
+        margin: 0; /* Elimina márgenes extra alrededor */
+    }
+}
+
+@media (max-width: 768px) { /* Para pantallas pequeñas */
+    .navbar-collapse .d-flex {
+        justify-content: flex-start; 
+    }
+
+    .iconos {
+        font-size: 1.6rem; /* Ajusta el tamaño de los íconos */
+        padding: 9px;
+        margin-bottom: 20px;
+    }
+}
+
 
 
 
