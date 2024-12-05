@@ -230,7 +230,7 @@ i {
     }
 }
 
-@media (max-width: 358px) { /* Para pantallas extremadamente pequeñas */
+@media (max-width: 400px) { /* Para pantallas extremadamente pequeñas */
     .navbar-collapse {
         background-color: #161616;
         position: absolute;
