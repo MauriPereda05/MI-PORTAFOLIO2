@@ -239,55 +239,48 @@ i {
     .navbar-collapse {
         background-color: #161616;
         position: absolute;
-        top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
+        top: 90%; /* Ajusta la posición vertical del menú */
         right: 0;
-        left: 0; /* Asegura que el menú ocupe toda la pantalla */
-        width: 400px; /* Ancho completo para el menú */
-        height: 550px; /* Ajusta la altura del menú */
+        left: 0;
+        width: 400px; /* Ancho del menú */
+        height: 510px; /* Altura del menú */
         padding: 10px;
-        display: none; /* Esconde el cuadrado por defecto */
+        display: none;
         overflow: hidden;
         border-bottom-left-radius: 15px;
         border-bottom: 3px solid red;
         border-left: 3px solid red;
     }
 
-    /* Aumenta el tamaño de los íconos */
     .iconos {
-        font-size: 50px; /* Aumenta el tamaño de los íconos */
-        transform: scale(2.0); /* Incrementa el tamaño de los íconos */
+        font-size: 50px;
+        transform: scale(2.0);
         white-space: nowrap;
+        position: relative; /* Permite mover el elemento con `top` o `transform` */
+        top: -40px; /* Mueve los íconos hacia arriba */
         padding-left: 38px;
     }
 
     .navbar-toggler {
-        font-size: 2.5rem; /* Aumenta el tamaño del botón del menú hamburguesa */
+        font-size: 2.5rem;
     }
 
-    /* Hace visible el menú cuando el botón hamburguesa está activo */
     .navbar-toggler.active + .navbar-collapse {
-        display: block; /* Muestra el menú cuando se activa */
+        display: block;
     }
 
     .navbar-nav {
         flex-direction: column;
-        align-items: start; /* Centra los elementos del menú */
+        align-items: start;
         padding: 20px;
     }
 
     .nav-item {
-        margin: 15px 0; /* Aumenta el espacio entre los enlaces */
+        margin: 15px 0;
     }
 
     .nav-link {
-        font-size: 1.6rem; /* Ajusta el tamaño de los enlaces */
+        font-size: 1.6rem;
         color: rgb(224, 224, 224);
     }
 }
-
-
-
-
-
-
-
