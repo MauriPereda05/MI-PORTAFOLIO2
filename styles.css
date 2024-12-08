@@ -19,19 +19,13 @@ body {
 }
 
 /* Menú de hamburguesa */
+
 .navbar-toggler {
     border: none;
     background-color: transparent;
     outline: none;
     font-size: 2rem; /* Aumenta el tamaño del ícono de hamburguesa */
 }
-
-.navbar-toggler-icon {
-    background-color: #fff;
-    width: 35px; /* Aumenta el tamaño de la hamburguesa */
-    height: 3px;
-}
-
 
 .navbar .text-white {
     font-size: 25px; /* Cambia el tamaño de la fuente del texto "Call me" */
@@ -86,6 +80,7 @@ i {
 }
 
 /* Menú de hamburguesa para pantallas pequeñas */
+
 .navbar-collapse {
     justify-content: flex-end;
     display: none; /* Ocultamos el menú por defecto */
@@ -94,6 +89,29 @@ i {
 .navbar-toggler.active + .navbar-collapse {
     display: block; /* Mostramos el menú cuando el botón está activo */
 }
+
+.navbar-toggler-icon {
+    background: none !important; /* Elimina cualquier fondo asignado */
+    border: none;
+    position: absolute; /* Posicionamiento absoluto */
+    top: 4%; /* Centra verticalmente basado en la altura dinámica */
+    left: 94%; /* Centrado horizontalmente dinámicamente */
+    transform: translate(-50%, -50%); /* Centra el icono */
+    font-size: 2.6rem; /* Tamaño base ajustable */
+}
+
+.navbar-toggler {
+    background: transparent; /* Hacer el fondo transparente */
+    border: none;           /* Eliminar el borde */
+    outline: none;          /* Evita el borde de enfoque por accesibilidad */
+    color: inherit;         /* Mantener el color del ícono */
+    cursor: pointer;        /* Mantener el cursor en forma de puntero */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none; /* Evitar el efecto de foco */
+}
+
 
 
 /* Responsividad - Pantallas pequeñas */
@@ -105,13 +123,21 @@ i {
         right: 0;
         left: 55%;
         width: 450px; /* Ajusta el ancho del cuadrado */
-        height: 430px; /* Ajusta la altura del cuadrado */
-        padding: 10px; /* Reduce el padding para que el cuadro sea más pequeño */
+        height: 410px; /* Ajusta la altura del cuadrado */
+        padding: 15px; /* Reduce el padding para que el cuadro sea más pequeño */
         display: none; /* Esconde el cuadrado por defecto */
         overflow: hidden; /* Elimina las barras de desplazamiento (vertical y horizontal) */
         border-bottom-left-radius: 15px;
         border-bottom: 3px solid red; /* Borde rojo en la parte inferior */
         border-left: 3px solid red;
+    }
+
+    .navbar-toggler-icon {
+        left: 93%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
+    }
+
+    .navbar-nav {
+        margin-top: -7px ;
     }
 
     .callme {
@@ -143,12 +169,18 @@ i {
     i {
         padding: 10px;
         font-size: 70px;
-        transform: scale(2.0);
+        transform: scale(1.7);
         white-space: nowrap;
-        margin-top: 50px;
-        margin-right: 60px;
+        margin-top: 44px;
+        margin-right: 40px; /* Ajusta o elimina según sea necesario */
+
+        color: rgb(224, 224, 224); /* Color blanco para los iconos */
     }
 
+    .align-items-center {
+        margin-right: 100px;
+    }
+    
     .nav-link {
         font-size: 1.4rem; /* Ajusta el tamaño de la fuente */
         color: rgb(224, 224, 224); /* Cambia el color de los enlaces */
@@ -165,11 +197,6 @@ i {
         margin-top: -47px;
     }
 
-    .iconos {
-        font-size: 1.6rem; /* Ajusta el tamaño de los iconos */
-        color: rgb(224, 224, 224); /* Color blanco para los iconos */
-    }
-
     .iconos:hover {
         color: rgb(224, 224, 224); /* Efecto hover para los iconos */
     }
@@ -177,8 +204,6 @@ i {
     .navbar-toggler-icon {
         background-color: rgb(224, 224, 224); /* Cambia el color del icono del menú */
     }
-
-    /* Animación para mover el enlace y mostrar la línea horizontal */
     .nav-link.active {
         transform: translateX(-10px); /* Mueve el enlace hacia la izquierda */
     }
@@ -205,10 +230,16 @@ i {
 }
 
 @media (max-width: 576px) { /* Para pantallas muy pequeñas */
+    .navbar-toggler-icon {
+        top: 55%;
+        right: 20%;
+    }
+    
+    
     .navbar-collapse .d-flex {
         justify-content: center; /* Asegura que los íconos estén centrados */
-        margin-top: 20px; /* Opcional: separa los íconos del resto del contenido */
-        gap: 10px; /* Espaciado entre íconos */
+        margin-top: -5px; /* Opcional: separa los íconos del resto del contenido */
+        gap: 25px; /* Espaciado entre íconos */
     }
 
     i {
@@ -217,7 +248,7 @@ i {
         transform: scale(1.6);
         white-space: nowrap;
         padding: 5px; /* Reduce el espacio interno del ícono */
-        margin: 0; /* Elimina márgenes extra alrededor */
+        margin: 0; 
     }
 
    
@@ -226,6 +257,10 @@ i {
 @media (max-width: 768px) { /* Para pantallas pequeñas */
     .navbar-collapse .d-flex {
         justify-content: flex-start; 
+    }
+
+    .navbar-toggler-icon {
+        left: 93%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
     }
 
     .iconos {
@@ -239,12 +274,12 @@ i {
     .navbar-collapse {
         background-color: #161616;
         position: absolute;
-        top: 90%; /* Ajusta la posición vertical del menú */
+        top: 100%; /* Ajusta la posición vertical del menú */
         right: 0;
         left: 0;
         width: 400px; /* Ancho del menú */
-        height: 510px; /* Altura del menú */
-        padding: 10px;
+        height: 500px; /* Altura del menú */
+        padding: 3px;
         display: none;
         overflow: hidden;
         border-bottom-left-radius: 15px;
@@ -252,13 +287,22 @@ i {
         border-left: 3px solid red;
     }
 
+    .navbar-toggler-icon {
+        left: 89%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
+    }
+
+    .navbar-nav {
+        margin-top: -20px;
+    }
+
     .iconos {
         font-size: 50px;
         transform: scale(2.0);
         white-space: nowrap;
         position: relative; /* Permite mover el elemento con `top` o `transform` */
-        top: -40px; /* Mueve los íconos hacia arriba */
-        padding-left: 38px;
+        top: -10px; /* Mueve los íconos hacia arriba */
+        padding-left: 35px;
+        margin-right: 10px; /* Agrega espacio entre los íconos */
     }
 
     .navbar-toggler {
