@@ -298,8 +298,10 @@ i {
     }
 
     .navbar-toggler-icon {
-        top: 43%;
+        top: 37%;
         left: 92%;
+
+        font-size: 35px;
     }
 
     .navbar-collapse .d-flex {
@@ -343,7 +345,9 @@ i {
     }
 
     .navbar-toggler-icon {
-        left: 84%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
+        left: 89%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
+        top: 37%;
+        font-size: 35px;
     }
 
     .navbar-nav {
