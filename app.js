@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
 
-    // Verifica si los elementos existen antes de añadir el evento
     if (navbarToggler && navbarCollapse) {
         navbarToggler.addEventListener('click', () => {
             navbarToggler.classList.toggle('active');
@@ -11,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 const links = document.querySelectorAll('.nav-link');
 
@@ -23,5 +23,4 @@ links.forEach(link => {
         link.classList.add('active');
     });
 });
-
 

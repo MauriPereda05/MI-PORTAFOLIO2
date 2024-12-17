@@ -4,12 +4,14 @@ body {
     margin: 0;
     padding: 0;
 
-    background-color: black;
+    background-color: #18181f;
 }
 
 .navbar {
     transition: background-color 0.3s ease;
     padding: 20px; /* Aumenta el padding para hacer el navbar más alto */
+    background: rgba(17, 17, 17, 0.7) !important;
+    
 }
 
 .navbar-brand {
@@ -37,10 +39,6 @@ body {
 
 .text-white {
     white-space: nowrap; /* Evita que el texto se divida */
-}
-
-.text-dark {
-    font-size: 25px;
 }
 
 /* Estilos del menú desplegable */
@@ -73,6 +71,7 @@ i {
     transform: scale(1.4);
     white-space: nowrap;
 }
+
 
 
 .nav-link:hover {
@@ -121,7 +120,7 @@ i {
         position: absolute;
         top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
         right: 0;
-        left: 55%;
+        left: 60%;
         width: 450px; /* Ajusta el ancho del cuadrado */
         height: 410px; /* Ajusta la altura del cuadrado */
         padding: 15px; /* Reduce el padding para que el cuadro sea más pequeño */
@@ -133,7 +132,7 @@ i {
     }
 
     .navbar-toggler-icon {
-        left: 93%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
+        left: 94%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
     }
 
     .navbar-nav {
@@ -212,7 +211,7 @@ i {
         content: ""; /* Crea el pseudo-elemento */
         position: absolute;
         left: 0;
-        bottom: -5px; /* Ajusta la posición para que la línea esté justo debajo del enlace */
+        bottom: 6px; /* Ajusta la posición para que la línea esté justo debajo del enlace */
         width: 0;
         height: 3px; /* Grosor de la línea horizontal */
         background-color: red; /* Color de la línea */
@@ -229,32 +228,33 @@ i {
     }
 }
 
-@media (max-width: 576px) { /* Para pantallas muy pequeñas */
-    .navbar-toggler-icon {
-        top: 55%;
-        right: 20%;
-    }
-    
-    
-    .navbar-collapse .d-flex {
-        justify-content: center; /* Asegura que los íconos estén centrados */
-        margin-top: -5px; /* Opcional: separa los íconos del resto del contenido */
-        gap: 25px; /* Espaciado entre íconos */
-    }
-
-    i {
-        padding: 10px;
-        font-size: 70px;
-        transform: scale(1.6);
-        white-space: nowrap;
-        padding: 5px; /* Reduce el espacio interno del ícono */
-        margin: 0; 
-    }
-
-   
-}
-
 @media (max-width: 768px) { /* Para pantallas pequeñas */
+    .navbar-collapse {
+        background-color: #161616;
+        position: absolute;
+        top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
+        right: 0;
+        left: 55%;
+        width: 450px; /* Ajusta el ancho del cuadrado */
+        max-height: 0; /* Inicialmente escondido */
+        height: auto; /* Permite que el contenido ajuste la altura */
+        padding: 0; /* Sin padding al inicio */
+        visibility: hidden; /* Esconde el menú inicialmente */
+        opacity: 0; /* Completamente transparente */
+        overflow: hidden; /* Elimina las barras de desplazamiento */
+        border-bottom-left-radius: 15px;
+        border-bottom: 3px solid red; /* Borde rojo en la parte inferior */
+        border-left: 3px solid red;
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* Transición suave */
+    }
+
+    .navbar-toggler.active + .navbar-collapse {
+        visibility: visible; /* Muestra el menú */
+        opacity: 1; /* Hazlo visible */
+        max-height: 410px; /* Ajusta la altura del menú desplegado */
+        padding: 15px; /* Aplica el padding al desplegar */
+    }
+
     .navbar-collapse .d-flex {
         justify-content: flex-start; 
     }
@@ -264,31 +264,86 @@ i {
     }
 
     .iconos {
-        font-size: 1.6rem; /* Ajusta el tamaño de los íconos */
+        transform: scale(1.6);
         padding: 9px;
-        margin-bottom: 20px;
+        margin-bottom: 200px;
     }
 }
+
+@media (max-width: 576px) { /* Para pantallas muy pequeñas */
+    .navbar-collapse {
+        background-color: #161616;
+        position: absolute;
+        top: 100%; /* Ajusta la posición para que no se superponga con el contenido */
+        right: 0;
+        left: 40%;
+        width: 450px; /* Ajusta el ancho del cuadrado */
+        max-height: 0; /* Inicialmente escondido */
+        height: auto; /* Permite que el contenido ajuste la altura */
+        padding: 0; /* Sin padding al inicio */
+        visibility: hidden; /* Esconde el menú inicialmente */
+        opacity: 0; /* Completamente transparente */
+        overflow: hidden; /* Elimina las barras de desplazamiento */
+        border-bottom-left-radius: 15px;
+        border-bottom: 3px solid red; /* Borde rojo en la parte inferior */
+        border-left: 3px solid red;
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* Transición suave */
+    }
+
+    .navbar-toggler.active + .navbar-collapse {
+        visibility: visible; /* Muestra el menú */
+        opacity: 1; /* Hazlo visible */
+        max-height: 410px; /* Ajusta la altura del menú desplegado */
+        padding: 15px; /* Aplica el padding al desplegar */
+    }
+
+    .navbar-toggler-icon {
+        top: 43%;
+        left: 92%;
+    }
+
+    .navbar-collapse .d-flex {
+        justify-content: center; /* Asegura que los íconos estén centrados */
+        margin-top: -5px; /* Opcional: separa los íconos del resto del contenido */
+        margin-right: 150px;
+    }
+
+    i {
+        padding: 10px;
+        transform: scale(1.6);
+        white-space: nowrap;
+        margin-top: 10px;
+    }
+
+    .nav-link {
+        font-size: 1.3rem;
+        color: rgb(224, 224, 224);
+    }
+}
+
 
 @media (max-width: 400px) { /* Para pantallas extremadamente pequeñas */
     .navbar-collapse {
         background-color: #161616;
         position: absolute;
-        top: 100%; /* Ajusta la posición vertical del menú */
+        top: 100%;
         right: 0;
         left: 0;
-        width: 400px; /* Ancho del menú */
-        height: 500px; /* Altura del menú */
-        padding: 3px;
-        display: none;
+        width: 400px;
+        max-height: 0; /* Inicialmente escondido */
+        height: auto;
+        padding: 0;
+        visibility: hidden;
+        opacity: 0;
         overflow: hidden;
         border-bottom-left-radius: 15px;
         border-bottom: 3px solid red;
         border-left: 3px solid red;
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* Transición suave */
     }
 
     .navbar-toggler-icon {
-        left: 89%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
+        left: 84%; /* Se mueve hacia la izquierda conforme se reduce el tamaño de la pantalla */
     }
 
     .navbar-nav {
@@ -296,13 +351,12 @@ i {
     }
 
     .iconos {
-        font-size: 50px;
-        transform: scale(2.0);
+        transform: scale(1.7);
         white-space: nowrap;
         position: relative; /* Permite mover el elemento con `top` o `transform` */
-        top: -10px; /* Mueve los íconos hacia arriba */
-        padding-left: 35px;
-        margin-right: 10px; /* Agrega espacio entre los íconos */
+        top: -15px; /* Mueve los íconos hacia arriba */
+        left: 30px;
+        padding-left: 30px;
     }
 
     .navbar-toggler {
@@ -310,7 +364,10 @@ i {
     }
 
     .navbar-toggler.active + .navbar-collapse {
-        display: block;
+        visibility: visible; /* Muestra el menú */
+        opacity: 1; /* Hazlo opaco */
+        max-height: 430px; /* Despliega el menú */
+        padding: 3px; /* Añade padding al desplegar */
     }
 
     .navbar-nav {
@@ -324,7 +381,7 @@ i {
     }
 
     .nav-link {
-        font-size: 1.6rem;
+        font-size: 1.0rem;
         color: rgb(224, 224, 224);
     }
 }
