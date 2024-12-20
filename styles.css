@@ -332,7 +332,7 @@ i {
         right: 0;
         left: 0;
         width: 400px;
-        max-height: 0; /* Inicialmente escondido */
+        max-height: 400px !important; /* Inicialmente escondido */
         height: auto;
         padding: 0;
         visibility: hidden;
@@ -355,11 +355,11 @@ i {
     }
 
     .iconos {
-        transform: scale(1.7);
+        transform: scale(1.9);
         white-space: nowrap;
         position: relative; /* Permite mover el elemento con `top` o `transform` */
-        top: -15px; /* Mueve los íconos hacia arriba */
-        left: 30px;
+        top: -10px; /* Mueve los íconos hacia arriba */
+        left: 39px;
         padding-left: 30px;
     }
 
@@ -381,11 +381,12 @@ i {
     }
 
     .nav-item {
-        margin: 15px 0;
+        margin: 10px 0;
     }
 
     .nav-link {
-        font-size: 1.0rem;
+        font-size: 1.1rem;
         color: rgb(224, 224, 224);
     }
 }
+

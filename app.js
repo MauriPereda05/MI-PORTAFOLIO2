@@ -24,3 +24,21 @@ links.forEach(link => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.querySelector('.welcome-text');
+    const container = document.querySelector('.welcome-container');
+    
+    // Detectar el fin de la animación
+    textElement.addEventListener('animationend', () => {
+      container.classList.add('written');
+    });
+  });
+
+  function descargarCV() {
+    const enlace = document.createElement('a');
+    enlace.href = '/CV/Mauricio-Pereda-Ruiz-CV-actualizado.pdf'; // Ruta del archivo
+    enlace.download = 'Mauricio-Pereda-Ruiz-CV-actualizado'; // Nombre con el que se descargará
+    enlace.click(); // Simula un clic para iniciar la descarga
+}
+
+
