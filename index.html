@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Proyectos</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Skills</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Education</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">FAQ</a></li>
@@ -51,6 +51,44 @@
             </div>
         </nav>
     </header>
+
+    <div class="welcome-container">
+        <!-- Texto animado -->
+        <div class="welcome-content">
+            <svg xmlns="http://www.w3.org/2000/svg" id="welcome" viewBox="0 0 600 150">
+                <!-- Texto con animación -->
+                <text class="welcome-text" x="20" y="100" font-size="90" fill="none" stroke="#2b3050" stroke-width="2">
+                    BIENVENIDO
+                </text>
+                <!-- Texto relleno que se activa después de completar la animación -->
+                <text class="welcome-fill" x="20" y="100" font-size="90" fill="#ffffff" stroke="none" opacity="0">
+                    BIENVENIDO
+                </text>
+            </svg>
+        </div>
+    
+        <!-- Contenedor del resumen, con separación visual -->
+        <div class="welcome-summary">
+            <p>
+                <span>Mi nombre es Mauricio, soy desarrollador front-end con experiencia en diseño y desarrollo de interfaces web interactivas y tengo conocimientos</span>
+                <span>en HTML, HTML5, CSS, SASS, Git, Git.Hub, JavaScript con Node.js y React.js, utilizo frameworks como Bootstrap para mantener un código</span>
+                <span>limpio y escalable. Me destaco por trabajar de forma colaborativa y mantenerme actualizado con las últimas tecnologías para aportar soluciones</span>
+                <span>innovadoras a los proyectos.</span>
+            </p>
+            <div class="button-wrapper">
+                <button class="slide-button" onclick="descargarCV()">
+                    <span class="slide-content">
+                        <span class="text">Descargar CV</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Contenedor de la imagen -->
+        <div class="computadora">
+            <img class="computadoraImagen" src="img/computadora2.png" alt="Computadora">
+        </div>
+    </div>
     
     <script src="./app.js"></script>
 

@@ -390,3 +390,397 @@ i {
     }
 }
 
+/* Contenedor principal para alinear ambos elementos */
+
+.welcome-container {
+    display: flex;
+    justify-content: space-between; /* Coloca el texto a la izquierda y la imagen a la derecha */
+    align-items: center; /* Centra los elementos verticalmente */
+    width: 100%;
+    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    padding: 20px; /* Espaciado interno para evitar el contacto con los bordes */
+}
+
+/* Contenedor para el texto animado */
+.welcome-content {
+    flex: 1; /* Da espacio proporcional al texto */
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 230px;
+    margin-left: 37px;
+}
+
+/* Estilando el SVG con el texto animado */
+.welcome-text {
+    stroke-dasharray: 400; /* Longitud total del efecto */
+    stroke-dashoffset: 400; /* Control de progreso de animación */
+    animation: drawText 2s linear forwards;
+    stroke-linecap: round;
+}
+
+/* Animación para simular el efecto de escritura */
+@keyframes drawText {
+    0% {
+        stroke-dashoffset: 400;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Transición para el texto relleno */
+.welcome-fill {
+    transition: opacity 0.5s ease-in; /* Suaviza la visibilidad */
+}
+
+.welcome-container.written .welcome-fill {
+    opacity: 1;
+}
+
+/* Estilo para el resumen debajo del WELCOME */
+.welcome-summary {
+    position: absolute;
+    text-align: center; /* Centra el texto */
+    color: #ffffff; /* Asegura el contraste */
+    top: 46%; /* Centra verticalmente */
+    left: 4%; /* Centra horizontalmente */
+    width: 65%; /* Ajusta el contenedor para no ocupar todo el ancho */
+    line-height: 1.5; /* Espaciado entre las líneas de texto */
+}
+
+.welcome-summary span {
+    display: block; /* Hace que cada <span> ocupe toda la línea */
+    font-size: 20px; /* Ajusta el tamaño del texto */
+    color: #ffffff; /* Mantiene el texto en blanco */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilando la imagen de la computadora */
+
+.computadora {
+    flex: 1; /* Da espacio proporcional a la imagen */
+    display: flex;
+    justify-content: center; /* Centra la imagen dentro de su espacio */
+    position: relative; /* Necesario para posicionar la pseudo-clase */
+}
+
+.computadora::before {
+    content: ''; 
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 33%; 
+    height: 25%;
+    background: skyblue; /* Color celeste con opacidad reducida */
+    border-radius: 40%; /* Forma redonda para el brillo */
+    filter: blur(20px); /* Difumina menos para un brillo suave */
+    opacity: 0; /* Inicialmente oculto */
+    animation: fadeIn 1.5s ease forwards; /* Animación para que aparezca */
+    animation-delay: 2.1s; /* Aparece después de la imagen */
+    z-index: 0; /* Asegura que esté detrás de la imagen */
+}
+
+.computadoraImagen {
+    max-height: 90%; /* Asegura que la imagen no se salga de su contenedor */
+    max-width: 80%;
+    object-fit: contain; /* Ajusta la imagen sin perder proporciones */
+    margin-bottom: 27px;
+    margin-left: 200px;
+    position: relative; /* Necesario para estar encima del brillo */
+    z-index: 1; /* Asegura que la imagen esté encima del brillo */
+    opacity: 0; /* Inicialmente oculto */
+    animation: fadeIn 1.5s ease forwards; /* Animación para que aparezca */
+}
+
+/* Animación para el efecto de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Boton de descargar mi CV */
+
+.button-wrapper {
+    display: flex;
+    margin-top: 35px;
+}
+
+.slide-button {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    font-size: 1.1rem;
+    color: white;
+    background: none;
+    border: 2px solid #60a5fa;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.slide-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #60a5fa;
+    transition: transform 0.5s ease;
+    transform: skewX(-20deg);
+}
+
+.slide-button:hover::before {
+    transform: skewX(-20deg) translateX(100%);
+}
+
+.text {
+    text-align: center !important;
+}
+
+/* Media Queries */
+
+/* Resolución 991px */
+@media (max-width: 991px) {
+    .welcome-container {
+        display: grid;
+        grid-template-columns: 1fr; /* Solo una columna para el diseño */
+        gap: 10px; /* Espacio entre el texto y la imagen */
+        margin-top: 90px;
+        padding-right: 40px;
+    }
+
+    .computadora {
+        bottom: 60%;
+        right: 5%;
+        transform: scale(0.9) translateX(-3%); /* Reduce el tamaño y la mueve un poco a la izquierda */
+        transition: transform 0.3s ease; /* Transición suave */
+    }
+
+    .welcome-summary {
+        top: 87%;
+        left: 17%; /* Ajusta la posición horizontal del texto */
+        text-align: center; /* Centra el texto dentro del contenedor */
+        width: 70%; /* Limita el ancho */
+        padding: 0 5px; /* Añade algo de espacio */
+        margin: 0 auto; /* Centra el contenedor dentro del espacio disponible */
+        display: flex; /* Cambiamos a flex para evitar que los <span> se apilen */
+        flex-direction: column; /* Los elementos se apilan de manera vertical */
+        justify-content: flex-start; /* Los textos no se sobreponen */
+        gap: 10px; /* Espacio entre los elementos <span> */
+        min-height: 60vh; /* Asegura que el contenedor tenga un mínimo de altura para evitar superposiciones */
+    }
+
+    .welcome-summary span {
+        font-size: 3vw; /* Reducción del tamaño de la fuente proporcionalmente */
+        line-height: 1.5; /* Espacio entre líneas */
+        color: #ffffff; /* Mantiene el texto blanco */
+        display: block; /* Hace que cada <span> ocupe una línea completa */
+        text-align: center; /* Asegura que el texto dentro de cada <span> esté centrado */
+        margin: 0; /* Elimina márgenes */
+        width: 100%; /* Hace que los <span> ocupen todo el ancho disponible */
+        word-wrap: break-word; /* Asegura que el texto no se desborde */
+    }
+
+    .button-wrapper {
+        height: 90px;
+    }
+
+    .slide-button {
+        position: absolute;
+        left: 49.5%; /* Centra horizontalmente */
+        top: 80%; /* Ajusta la posición del botón */
+        transform: translateX(-50%); /* Asegura que esté centrado completamente */
+        margin-top: 20px; /* Da espacio entre el texto y el botón */
+    }
+}
+
+
+/* Resolución 768px */
+@media (max-width: 768px) {
+    .computadora {
+        width: 100%; /* Ajusta el tamaño de la imagen proporcionalmente */
+        transform: scale(1.0) translateX(-8%); /* Reduce el tamaño de la imagen y la mueve ligeramente a la izquierda */
+        transition: transform 0.3s ease; /* Transición suave */
+
+        bottom: 70%;
+    }
+
+    .welcome-summary {
+        top: 70%; /* Ajusta la posición vertical del texto */
+        left: 10%; /* Ajusta la posición horizontal del texto */
+        text-align: center; /* Centra el texto dentro del contenedor */
+        width: 80%; /* Ajusta el ancho del contenedor */
+        padding: 0 5px; /* Añade algo de espacio */
+        margin: 0 auto; /* Centra el contenedor dentro del espacio disponible */
+        display: flex; /* Usamos flex para apilar los elementos */
+        flex-direction: column; /* Los elementos se apilan de manera vertical */
+        justify-content: flex-start; /* Los textos no se sobreponen */
+        gap: 10px; /* Espacio entre los elementos <span> */
+        min-height: 50vh; /* Asegura que el contenedor tenga un mínimo de altura */
+    }
+
+    .welcome-summary span {
+        font-size: 3.5vw; /* Ajusta el tamaño de la fuente proporcionalmente */
+        line-height: 1.5; /* Espacio entre líneas */
+        color: #ffffff; /* Mantiene el texto blanco */
+        display: block; /* Hace que cada <span> ocupe una línea completa */
+        text-align: center; /* Asegura que el texto dentro de cada <span> esté centrado */
+        margin: 0; /* Elimina márgenes */
+        width: 100%; /* Hace que los <span> ocupen todo el ancho disponible */
+        word-wrap: break-word; /* Asegura que el texto no se desborde */
+    }
+
+    .button-wrapper {
+        height: 90px;
+    }
+
+    .slide-button {
+        position: absolute;
+        left: 50%; /* Centra horizontalmente */
+        top: 80%; /* Ajusta la posición del botón */
+        transform: translateX(-50%); /* Asegura que esté centrado completamente */
+        margin-top: 20px; /* Da espacio entre el texto y el botón */
+        font-size: 16px; /* Reducción proporcional del tamaño del botón */
+    }
+}
+
+/* Resolución 576px */
+
+/* Resolución 576px */
+@media (max-width: 576px) {
+    .computadora {
+        width: 100%; /* La imagen ocupa todo el ancho disponible */
+        transform: scale(1.3);
+        transition: transform 0.3s ease; /* Transición suave */
+
+        bottom: 75%; /* Ajusta la posición vertical de la imagen */
+        right: 21%;
+    }
+
+    .welcome-summary {
+        top: 65%; /* Ajusta la posición vertical del texto */
+        left: 7%; /* Ajusta la posición horizontal del texto */
+        text-align: center; /* Centra el texto dentro del contenedor */
+        width: 85%; /* Ajusta el ancho del contenedor */
+        padding: 0 5px; /* Añade algo de espacio */
+        margin: 0 auto; /* Centra el contenedor dentro del espacio disponible */
+        display: flex; /* Usamos flex para apilar los elementos */
+        flex-direction: column; /* Los elementos se apilan de manera vertical */
+        justify-content: flex-start; /* Los textos no se sobreponen */
+        gap: 10px; /* Espacio entre los elementos <span> */
+        min-height: 50vh; /* Asegura que el contenedor tenga un mínimo de altura */
+    }
+
+    .welcome-summary span {
+        font-size: 4vw; /* Ajusta el tamaño de la fuente proporcionalmente */
+        line-height: 1.5; /* Espacio entre líneas */
+        color: #ffffff; /* Mantiene el texto blanco */
+        display: block; /* Hace que cada <span> ocupe una línea completa */
+        text-align: center; /* Asegura que el texto dentro de cada <span> esté centrado */
+        margin: 0; /* Elimina márgenes */
+        width: 100%; /* Hace que los <span> ocupen todo el ancho disponible */
+        word-wrap: break-word; /* Asegura que el texto no se desborde */
+    }
+
+    .button-wrapper {
+        height: 90px;
+    }
+
+    .slide-button {
+        position: absolute;
+        left: 50%; /* Centra horizontalmente */
+        top: 75%; /* Ajusta la posición del botón */
+        transform: translateX(-50%); /* Asegura que esté centrado completamente */
+        margin-top: 20px; /* Da espacio entre el texto y el botón */
+        font-size: 14px; /* Reducción proporcional del tamaño del botón */
+    }
+
+    .computadoraImagen {
+        max-height: 90%; /* Asegura que la imagen no se salga de su contenedor */
+        max-width: 80%;
+        object-fit: contain; /* Ajusta la imagen sin perder proporciones */
+        margin-bottom: 27px;
+        margin-left: 170px;
+        position: relative; /* Necesario para estar encima del brillo */
+        z-index: 1; /* Asegura que la imagen esté encima del brillo */
+        opacity: 0; /* Inicialmente oculto */
+        animation: fadeIn 1.5s ease forwards; /* Animación para que aparezca */
+    }
+}
+
+/* Resolución 400px */
+
+/* Resolución 400px */
+@media (max-width: 400px) {
+    .computadora {
+        width: 100%; /* La imagen ocupa todo el ancho disponible */
+        transform: scale(1.4); /* Escala la imagen para mantener proporción */
+        transition: transform 0.3s ease; /* Transición suave */
+        bottom: 100%; /* Ajusta la posición vertical de la imagen */
+        right: 30%; /* Mueve la imagen un poco hacia la izquierda */
+    }
+
+    .welcome-summary {
+        top: 62%; /* Ajusta la posición vertical del texto */
+        left: 5%; /* Ajusta la posición horizontal del texto */
+        text-align: center; /* Centra el texto dentro del contenedor */
+        width: 90%; /* Ajusta el ancho del contenedor */
+        padding: 0 5px; /* Añade algo de espacio */
+        margin: 0 auto; /* Centra el contenedor dentro del espacio disponible */
+        display: flex; /* Usamos flex para apilar los elementos */
+        flex-direction: column; /* Los elementos se apilan de manera vertical */
+        justify-content: flex-start; /* Los textos no se sobreponen */
+        gap: 8px; /* Espacio entre los elementos <span> */
+        min-height: 45vh; /* Asegura que el contenedor tenga un mínimo de altura */
+    }
+
+    .welcome-summary span {
+        font-size: 4.5vw; /* Ajusta el tamaño de la fuente proporcionalmente */
+        line-height: 1.4; /* Espacio entre líneas */
+        color: #ffffff; /* Mantiene el texto blanco */
+        display: block; /* Hace que cada <span> ocupe una línea completa */
+        text-align: center; /* Asegura que el texto dentro de cada <span> esté centrado */
+        margin: 0; /* Elimina márgenes */
+        width: 100%; /* Hace que los <span> ocupen todo el ancho disponible */
+        word-wrap: break-word; /* Asegura que el texto no se desborde */
+    }
+
+    .button-wrapper {
+        height: 80px;
+    }
+
+    .slide-button {
+        position: absolute;
+        left: 50%; /* Centra horizontalmente */
+        top: 78%; /* Ajusta la posición del botón */
+        transform: translateX(-50%); /* Asegura que esté centrado completamente */
+        margin-top: 15px; /* Da espacio entre el texto y el botón */
+        font-size: 12px; /* Reducción proporcional del tamaño del botón */
+    }
+
+    .computadoraImagen {
+        max-height: 85%; /* Asegura que la imagen no se salga de su contenedor */
+        max-width: 75%;
+        object-fit: contain; /* Ajusta la imagen sin perder proporciones */
+        margin-bottom: 25px;
+        margin-left: 140px;
+        position: relative; /* Necesario para estar encima del brillo */
+        z-index: 1; /* Asegura que la imagen esté encima del brillo */
+        opacity: 0; /* Inicialmente oculto */
+        animation: fadeIn 1.5s ease forwards; /* Animación para que aparezca */
+    }
+}
